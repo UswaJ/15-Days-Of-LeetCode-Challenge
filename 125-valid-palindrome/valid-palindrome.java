@@ -1,20 +1,17 @@
 class Solution {
-    public boolean isPalindrome(String s) {
-       
-        String str_after_removing = "";
+
+    public static boolean isPalindrome(String s) {
+        
+        String ascii_onli = "";
         for (char c : s.toCharArray()) {
             if (Character.isLetterOrDigit(c)) {
-                str_after_removing += Character.toLowerCase(c);
+                ascii_onli+= Character.toLowerCase(c);
             }
         }
 
-       
-        int n = str_after_removing.length();
-        
-        for (int i = 0; i < n/2; i++) {
-            char first_char = str_after_removing.charAt(i);
-            char last_char = str_after_removing.charAt(n - 1 - i);
-            if (first_char != last_char) {
+        int n = ascii_onli.length();
+        for (int i = 0; i < n / 2; i++) {
+            if (ascii_onli.charAt(i) != ascii_onli.charAt(n - 1 - i)) {
                 return false;
             }
         }
@@ -22,7 +19,4 @@ class Solution {
         return true;
     }
 
-   
-        
-    
 }
